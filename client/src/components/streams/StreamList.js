@@ -10,14 +10,14 @@ class StreamList extends React.Component{
     fetchStreams();
   }
 
-  renderAdmin({ userId }) {
+  renderAdmin({ userId, id }) {
     const { currentUserId } = this.props;
 
     if (userId === currentUserId) {
       return (
         <div className="right floated content">
-          <button className="button ui primary">Edit</button>
-          <button className="button ui negative">Delete</button>
+          <Link to={`/streams/edit/${id}`} className="button ui primary">Edit</Link>
+          <Link to={`/streams/delete/${id}`} className="button ui negative">Delete</Link>
         </div>
       );
     }
